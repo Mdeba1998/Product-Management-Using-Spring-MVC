@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Update Product</title>
+
+	<!-- Bootstrap CDN(Content Delivery Network) link to get support of BootStrap -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+	<div class="container-fluid text-center text-white bg-success">
+		<h1>Spring boot Mvc Project With Thymeleaf</h1>
+		<h2>@Controller @Service @Repository Validation Logger......</h2>
+	</div>
+	<div class="container mt-5 text-center">
+		<h2 class="text-center font-italic mb-1">Update Product</h2>
+		<br>
+
+		<form th:action="@{/products/saveproduct}" th:object="${product}" method="post">
+
+			<div class="form-group">
+				<label for="name" class="font-italic font-weight-bold">Id:</label>
+				<input type="text" id="id" th:field="*{id}" readonly /><br />
+			</div>
+			<div class="form-group">
+				<label for="name" class="font-italic font-weight-bold">Name:</label>
+				<input type="text" id="name" th:field="*{name}" placeholder="Product Name" /><br />
+			</div>
+			<div class="form-group">
+				<label for="brand" class="font-italic font-weight-bold">Brand:</label>
+				<input type="text" id="brand" th:field="*{brand}" placeholder="Product Brand" /><br />
+			</div>
+			<div class="form-group">
+				<label for="madeIn" class="font-italic font-weight-bold">Made In:</label>
+				<input type="text" id="madein" th:field="*{madeIn}" placeholder="Product Made In" /><br />
+			</div>
+			<div class="form-group">
+				<label for="price" class="font-italic font-weight-bold">Price:</label>
+				<input type="number" id="price" step="0.01" th:field="*{price}" /><br />
+			</div>
+			<div>
+				<input type="submit" class="btn btn-warning" value="Update Product" />
+				<a href="/products/getproducts" class="btn btn-danger">Cancel</a>
+			</div>
+		</form>
+	</div>
+</body>
+
+</html>
